@@ -65,7 +65,7 @@ image.onload = function() {
 		scene.remove( mesh );
 	}
 	
-	image_ar = (image.width / 2) / image.height;
+	image_ar = image.width / image.height / 4;
 	
 	const ctx = document.createElement('canvas').getContext('2d');
 	ctx.canvas.width = image.width / 2;
