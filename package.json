@@ -1,0 +1,19 @@
+{
+  "name": "depthmap-viewer-three",
+  "version": "1.0.0",
+  "description": "",
+  "default": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "parcel index.html --open",
+    "build": "parcel build index.html --public-url ./"
+  },
+  "author": "thygate",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "three": "^0.146.0"
+  }
+}
