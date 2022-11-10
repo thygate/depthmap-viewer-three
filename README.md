@@ -4,7 +4,7 @@ Simple web-based interactive depthmap viewer. Using [threejs](https://threejs.or
 
 Drag-and-drop images with combined-rgb-and-depth-horizontally into the window to view them.
 
-Live at https://thygate.github.io/depthmap-viewer-three
+LIVE at https://thygate.github.io/depthmap-viewer-three
 
 ## Example input image
 
