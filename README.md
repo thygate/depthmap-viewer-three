@@ -6,7 +6,7 @@ Drag-and-drop images with combined-rgb-and-depth-horizontally into the window to
 
 Live at https://thygate.github.io/depthmap-viewer-three
 
-example input image :
+## Example input image
 
 ![example](src/assets/roots2_rgbd.png)
 
