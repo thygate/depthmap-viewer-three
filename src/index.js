@@ -10,15 +10,14 @@ let image_ar;
 
 const settings = {
 	metalness: 0.0,
-	roughness: 1.0,
-	ambientIntensity: 0.2,
+	roughness: 0.14,
+	ambientIntensity: 0.85,
 	displacementScale: 5, 
-	displacementBias: -0.428408,
-	modelScale: 1
+	displacementBias: -0.5,
 };
 
 // init
-const camera = new THREE.PerspectiveCamera( );
+const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.z = 3;
 
 const scene = new THREE.Scene();
@@ -50,6 +49,18 @@ function animation( time ) {
 
 }
 
+function onWindowResize() {
+
+	const aspect = window.innerWidth / window.innerHeight;
+	camera.aspect = aspect;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+window.addEventListener( 'resize', onWindowResize );
+
+
 // orbit controls
 const controls = new OrbitControls( camera, renderer.domElement );
 controls.enableZoom = true;
@@ -65,7 +76,7 @@ image.onload = function() {
 		scene.remove( mesh );
 	}
 	
-	image_ar = image.width / image.height / 4;
+	image_ar = image.width / image.height / 2;
 	
 	const ctx = document.createElement('canvas').getContext('2d');
 	ctx.canvas.width = image.width / 2;
@@ -104,7 +115,6 @@ image.onload = function() {
 	mesh.scale.multiplyScalar( 0.23 );
 	scene.add( mesh );
 	
-	
 }
 image.src = MyTexture;
 
@@ -112,41 +122,20 @@ image.src = MyTexture;
 // setup gui
 const gui = new GUI();
 gui.add( settings, 'metalness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-
 	material.metalness = value;
-
 } );
-
 gui.add( settings, 'roughness' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-
 	material.roughness = value;
-
 } );
-
 gui.add( settings, 'ambientIntensity' ).min( 0 ).max( 1 ).onChange( function ( value ) {
-
 	ambientLight.intensity = value;
-
 } );
-/*
-gui.add( settings, 'modelScale' ).min( 0.1 ).max( 1 ).onChange( function ( value ) {
-
-	mesh.scale.x = value;
-	mesh.scale.y = value / image_ar;
-
-} );
-*/
-
 gui.add( settings, 'displacementScale' ).min( 0 ).max( 30.0 ).onChange( function ( value ) {
-
 	material.displacementScale = value;
-
 } );
-
 gui.add( settings, 'displacementBias' ).min( -10 ).max( 10 ).onChange( function ( value ) {
 
 	material.displacementBias = value;
-
 } );
 
 
@@ -177,13 +166,11 @@ function handleDrop(e) {
 }
 
 function readImage(file) {
-   const reader = new FileReader();
-   reader.addEventListener('load', (event) => {
-	
-	image.src = event.target.result;
-	
-   });
-   reader.readAsDataURL(file);
+	const reader = new FileReader();
+	reader.addEventListener('load', (event) => {
+		image.src = event.target.result;
+	});
+	reader.readAsDataURL(file);
 }
 
 window.addEventListener('dragenter', function(e) {
@@ -197,3 +184,10 @@ dropZone.addEventListener('dragleave', function(e) {
 });
 dropZone.addEventListener('drop', handleDrop);
 
+
+// listen for messages
+window.addEventListener('message', function(e) {
+  if (e.data?.imagedata) {
+	image.src = e.data.imagedata;
+  }
+});

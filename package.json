@@ -5,8 +5,8 @@
   "default": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "parcel index.html --open",
-	"build": "parcel build index.html --public-url ./"
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html --public-url ./"
   },
   "author": "thygate",
   "license": "ISC",
