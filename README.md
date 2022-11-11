@@ -2,7 +2,7 @@
 
 Simple web-based interactive depthmap viewer. Using [threejs](https://threejs.org/) to render a plane with a displacement map.
 
-Drag-and-drop images with combined-rgb-and-depth-horizontally into the window to view them.
+`Drag-and-drop` images with combined-rgb-and-depth-horizontally into the window to view them.
 
 LIVE at https://thygate.github.io/depthmap-viewer-three
 
