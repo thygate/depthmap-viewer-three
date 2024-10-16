@@ -11,8 +11,19 @@ LIVE at https://thygate.github.io/depthmap-viewer-three
 ![example](src/assets/roots2_rgbd.png)
 >Image was generated with stable diffusion using [AUTOMATIC1111's Stable Diffusion Web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) and [stable-diffusion-webui-depthmap-script](https://github.com/thygate/stable-diffusion-webui-depthmap-script).
 
-## Building
+## Running
+
+The following installs dev and non-dev dependencies, including `three` for
+rendering, and `serve` which is used to serve the website locally:
+
 ```
-npm install
-npm run build
+npm clean-install
+npm start
+```
+
+To install for production without dev dependencies (namely, without `serve`)
+run the following then host the files anywhere you want:
+
+```
+npm clean-install --production
 ```

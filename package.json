@@ -5,13 +5,12 @@
   "default": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html --public-url ./"
+    "start": "serve ."
   },
   "author": "thygate",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "serve": "^14.2.4"
   },
   "dependencies": {
     "three": "^0.146.0"
