@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js';
 
-import MyTexture from  "./assets/roots2_rgbd.png";
+const MyTexture = new URL("./assets/roots2_rgbd.png", import.meta.url);
 
 let mesh;
 let material;
